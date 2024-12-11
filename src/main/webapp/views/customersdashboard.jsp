@@ -146,9 +146,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin-top: 15px;
-        }
-
-        .checkout-btn:hover {
+        }.checkout-btn:hover {
             background-color: #45a049;
         }.toast {
             visibility: hidden;
@@ -245,9 +243,7 @@
             </div>
             <% } %>
         </div>
-    </main>
-
-    <!-- Cart Modal -->
+    </main><!-- Cart Modal -->
     <div id="cart-modal" class="cart-modal">
         <div class="cart-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
@@ -339,9 +335,7 @@
             toast.textContent = message;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        function openCart() {
+        }function openCart() {
             document.getElementById('cart-modal').style.display = 'flex';
         }
 
@@ -441,9 +435,7 @@
             updatePaymentMethod();
             
             // Reset
-            // Existing script code from previous artifact...
-
-        // Reset form fields
+            // Existing script code from previous artifact...// Reset form fields
         document.getElementById('customer-name').value = '';
         document.getElementById('customer-email').value = '';
         document.getElementById('customer-phone').value = '';

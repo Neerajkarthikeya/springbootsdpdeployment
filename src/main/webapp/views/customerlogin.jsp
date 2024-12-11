@@ -68,7 +68,6 @@
 
         .input-group input:focus {
             border-color: var(--primary-color);
-            
             outline: none;
         }
 
@@ -127,13 +126,10 @@
         .thread:nth-child(1) { left: 25%; animation-delay: -0.5s; }
         .thread:nth-child(2) { left: 50%; animation-delay: -1s; }
         .thread:nth-child(3) { left: 75%; animation-delay: -1.5s; }
-        .thread:nth-child(4) { left: 10%; animation-delay: -2s; }
-
-        @keyframes weave {
+        .thread:nth-child(4) { left: 10%; animation-delay: -2s; }@keyframes weave {
             0%, 100% { transform: translateY(-100%); }
             50% { transform: translateY(100%); }
         }
-
         .fabric {
             position: absolute;
             top: 0;
@@ -153,28 +149,35 @@
             100% { transform: translateY(0); }
         }
         
-     .register-link {
-    margin-top: 20px;
-    font-size: 14px;
-    color: var(--text-color);
-    text-align: left;
-}
+        .register-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-color);
+            text-align: left;
+        }
 
-.register-link a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-}
+        .register-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-.register-link a:hover {
-    text-decoration: underline;
-}
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for the error message */
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="login-form">
-            <h2>Threads of Tradition-Customer Login</h2>
+            <h2>Threads of Tradition - Customer Login</h2>
             <form action="checkcustomerlogin" method="post">
                 <div class="input-group">
                     <input type="email" name="cmail" placeholder="Email" required>
@@ -184,9 +187,15 @@
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
-             <p class="register-link">
-        Don’t have an account? <a href="customersignup">Register now</a>
-    </p>
+
+            <!-- Display error message if login fails -->
+            <c:if test="${not empty message}">
+                <p class="error-message">${message}</p>
+            </c:if>
+
+            <p class="register-link">
+                Don’t have an account? <a href="customersignup">Register now</a>
+            </p>
         </div>
         <div class="image-container">
             <div class="fabric-pattern"></div>

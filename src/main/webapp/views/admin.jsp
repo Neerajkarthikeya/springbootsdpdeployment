@@ -423,7 +423,7 @@
         e.preventDefault();
         if(confirm('Are you sure you want to logout?')) {
             // Implement logout logic
-            window.location.href = 'adminlogin';
+            window.location.href = 'login';
         }
     });
 

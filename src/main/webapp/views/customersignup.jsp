@@ -124,13 +124,11 @@
         .thread:nth-child(1) { left: 25%; animation-delay: -0.5s; }
         .thread:nth-child(2) { left: 50%; animation-delay: -1s; }
         .thread:nth-child(3) { left: 75%; animation-delay: -1.5s; }
-        .thread:nth-child(4) { left: 10%; animation-delay: -2s; }
-
-        @keyframes weave {
+        .thread:nth-child(4) { left: 10%; animation-delay: -2s; }@keyframes weave {
             0%, 100% { transform: translateY(-100%); }
             50% { transform: translateY(100%); }
         }
-
+        
         .fabric {
             position: absolute;
             top: 0;
@@ -150,12 +148,44 @@
             100% { transform: translateY(0); }
         }
     </style>
+    <script>
+        // Password and Mobile number validation function
+        function validatePassword() {
+            var password = document.forms["registerForm"]["cpwd"].value;
+            var confirmPassword = document.forms["registerForm"]["ccpwd"].value;
+            var mobileNumber = document.forms["registerForm"]["cnumber"].value;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Example: At least 8 characters, 1 uppercase, 1 number, 1 special character
+            var mobilePattern =/^[0-9]{10}$/; // Mobile number pattern: exactly 10 digits
+            var errorMessage = document.getElementById("error-message");
+
+            // Check if password meets criteria
+            if (!password.match(passwordPattern)) {
+                errorMessage.innerHTML = "Password must be at least 8 characters long, contain one uppercase letter, one number, and one special character.";
+                return false;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                errorMessage.innerHTML = "Passwords do not match.";
+                return false;
+            }
+
+            // Check if mobile number is valid
+            if (!mobileNumber.match(mobilePattern)) {
+                errorMessage.innerHTML = "Mobile number must be 10 digits.";
+                return false;
+            }
+
+            errorMessage.innerHTML = ""; // Clear error message if validation is successful
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="register-form">
             <h2>Join Threads of Tradition-Customer Details</h2>
-            <form action="insertcustomer" method="post">
+            <form name="registerForm" action="insertcustomer" method="post" onsubmit="return validatePassword()">
                 <div class="input-group">
                     <input type="text" name="cname" placeholder="Customer Username" required>
                 </div>
@@ -168,11 +198,10 @@
                 <div class="input-group">
                     <input type="password" name="ccpwd" placeholder="Confirm Password" required>
                 </div>
-                
-                 <div class="input-group">
+                <div class="input-group">
                     <input type="number" name="cnumber" placeholder="Customer Mobile number" required>
                 </div>
-               
+                <div id="error-message" style="color: red;"></div>
                 <button type="submit" class="register-btn">Register</button>
             </form>
         </div>
