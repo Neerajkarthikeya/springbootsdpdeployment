@@ -1,17 +1,20 @@
-# Use Maven base image with JDK
-FROM maven:3.9.3-eclipse-temurin-17
+# Use an official Java runtime as a parent image
+FROM openjdk:17-jdk-slim
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy all project files into the container
-COPY . .
+# Copy the local code to the container
+COPY . /app/
 
-# Run Maven to build the project
+# Install Maven
+RUN apt-get update && apt-get install -y maven && apt-get clean
+
+# Build the application using Maven
 RUN mvn clean package
 
-# Expose the application port
+# Expose the port the app will run on
 EXPOSE 8080
 
-# Command to run the application
+# Run the Spring Boot application
 CMD ["java", "-jar", "target/HFMP-0.0.1-SNAPSHOT.jar"]
