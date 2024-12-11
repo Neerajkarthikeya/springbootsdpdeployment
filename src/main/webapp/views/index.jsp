@@ -560,7 +560,6 @@
                 <a href="javascript:void(0)" class="">Login</a>
                 <div class="dropdown-content">
                     <a href="artisanlogin">Artisan</a>
-                    <a href="#marketing-specialistlogin">Marketing Specialist</a>
                     <a href="customerlogin">Buyer</a>
                 </div>
             </li>
@@ -568,7 +567,6 @@
                 <a href="javascript:void(0)" class="">Register</a>
                 <div class="dropdown-content">
                     <a href="artisansignup">Artisan</a>
-                    <a href="#marketing-specialistsignup">Marketing Specialist</a>
                     <a href="customersignup">Buyer</a>
                 </div>
             </li>
