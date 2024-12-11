@@ -660,7 +660,7 @@
             <div class="product-info">
                 <h3>Handmade Table Runner</h3>
                 <p>Keep warm with this beautifully designed shawl.</p>
-                <p class="product-price">$45.00</p>
+                <p class="product-price">$125.00</p>
             </div>
         </div>
         <div class="product-card">
